@@ -7,7 +7,7 @@ a = ['server10.sss', 'server11.sss', 'server12.sss']
 
 # Loading the configuration file
 config = configparser.ConfigParser()
-config.read("dispecnik.conf")
+config.read("dispatcher.conf")
 
 # Gathering FTP connection settings fron the config file  FTPServer' in config:
 if ('FTPServer' in config):
