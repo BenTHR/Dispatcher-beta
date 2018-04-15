@@ -22,19 +22,19 @@ else:
 #### Gathering INPROG changes information ###
 
 # connect to database#
-if ('FTPServer' in config):
-    db_name = config['DBServer']['db_name']
-    db_user = config['DBServer']['db_user']
-    db_host = config['DBServer']['db_host']
-    db_pwd = config['DBServer']['db_pwd']
+if ('DBPServer' in config):
+    db_name = 'change_db' #config['DBServer']['db_name']
+    db_user = 'postgres'#config['DBServer']['db_user']
+    db_host = 'localhost:5432'#config['DBServer']['db_host']
+    db_pwd = 'password'#config['DBServer']['db_pwd']
     print("Database connection parameters extracted ... OK")
 else:
     print('please set up the Database location in the configuration file ... FAIL')
 
 try:
-    conn = psycopg2.connect(host=db_user, database=db_name, user=db_user, password=db_pwd)
+    conn = psycopg2.connect(host='localhost:5432', database='change_db', user='postgres', password='password')
     cur = conn.cursor()
-    cur.execute("SELECT * FROM "+db_name+";")
+    #cur.execute("SELECT * FROM "+db_name+";")
     print("connection to ticketing system database .... OK")
 
 except:
